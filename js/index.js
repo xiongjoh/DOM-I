@@ -40,3 +40,66 @@ const siteContent = {
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
+
+// nav links
+const headerNavLinks = document.querySelectorAll('.container header nav a')
+headerNavLinks.forEach((a, index) => {
+  a.textContent = siteContent.nav[`nav-item-${index+1}`]
+})
+
+
+// cta-text h1
+const ctaText = document.querySelector('.cta-text')
+const myh1 = ctaText.querySelector('h1')
+const h1Cta = siteContent.cta.h1.split(' ')
+myh1.appendChild(document.createTextNode(h1Cta[0]))
+myh1.appendChild(document.createElement('br'))
+myh1.appendChild(document.createTextNode(h1Cta[1]))
+myh1.appendChild(document.createElement('br'))
+myh1.appendChild(document.createTextNode(h1Cta[2]))
+
+// cta-text button
+
+ctaText.querySelector('button').textContent = siteContent.cta.button
+
+// cta img
+
+const ctaImg = document.querySelector('#cta-img')
+ctaImg.setAttribute('src', siteContent.cta["img-src"])
+
+// main-content
+// top
+const topContentText1 = document.querySelector('.top-content .text-content:nth-of-type(1)')
+const topContentText2 = document.querySelector('.top-content .text-content:nth-of-type(2)')
+topContentText1.querySelector('h4').textContent = siteContent["main-content"]["features-h4"]
+topContentText1.querySelector('p').textContent = siteContent["main-content"]["features-content"]
+topContentText2.querySelector('h4').textContent = siteContent["main-content"]["about-h4"]
+topContentText2.querySelector('p').textContent = siteContent["main-content"]["about-content"]
+
+// middle image
+
+const middleImg = document.querySelector('#middle-img')
+middleImg.src = siteContent["main-content"]["middle-img-src"]
+
+// bottom
+
+const bottomContentText = document.querySelectorAll('.bottom-content .text-content')
+
+bottomContentText[0].querySelector('h4').textContent = siteContent["main-content"]["services-h4"]
+bottomContentText[0].querySelector('p').textContent = siteContent["main-content"]["services-content"]
+bottomContentText[1].querySelector('h4').textContent = siteContent["main-content"]["product-h4"]
+bottomContentText[1].querySelector('p').textContent = siteContent["main-content"]["product-content"]
+bottomContentText[2].querySelector('h4').textContent = siteContent["main-content"]["vision-h4"]
+bottomContentText[2].querySelector('p').textContent = siteContent["main-content"]["vision-content"]
+
+// contact
+
+const contact = document.querySelector('.contact')
+contact.querySelector('h4').textContent = siteContent["contact"]["contact-h4"]
+contact.querySelector('p:nth-of-type(1)').textContent = siteContent["contact"]["address"]
+contact.querySelector('p:nth-of-type(2)').textContent = siteContent["contact"]["phone"]
+contact.querySelector('p:nth-of-type(3)').textContent = siteContent["contact"]["email"]
+
+// footer
+
+document.querySelector('footer p').textContent = siteContent["footer"]["copyright"]
